@@ -16,6 +16,17 @@ public class BirdScript : MonoBehaviour {
             rb.velocity = Vector2.zero;
             rb.AddForce(Vector2.up * jumpForce);
         }
-	}
+        
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision){
+        GameController.instance.score++;
+        Debug.Log(GameController.instance.score);
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameController.instance.isFinished = true;
+    }
 
 }

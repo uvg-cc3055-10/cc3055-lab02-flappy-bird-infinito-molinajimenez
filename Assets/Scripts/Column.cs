@@ -9,12 +9,24 @@ public class Column : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	void Update () {
-        transform.Translate(Vector3.left * scrollingSpeed * Time.deltaTime);
-        if (transform.position.x < -10)
+
+    void Update()
+    {
+        if (GameController.instance.isFinished == false)
+        {
+            transform.Translate(Vector3.left * scrollingSpeed * Time.deltaTime);
+            if (transform.position.x < -10)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
+        else
         {
             Destroy(gameObject);
         }
     }
+
+
+    
 }
